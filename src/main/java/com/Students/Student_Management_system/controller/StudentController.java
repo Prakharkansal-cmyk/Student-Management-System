@@ -1,0 +1,36 @@
+package com.Students.Student_Management_system.controller;
+
+
+import com.Students.Student_Management_system.entity.Student;
+import com.Students.Student_Management_system.service.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+public class StudentController {
+
+    @Autowired
+   private StudentService studentService;
+
+    @GetMapping("/getAllStudents")
+   public List<Student>getAllStudents(){
+     return studentService.getAllStudents();
+    }
+
+    @PostMapping("/addStudent")
+   public Student addStudent(@RequestBody Student student){
+        return studentService.addStudent(student);
+    }
+
+    @PutMapping("/updatedStudent/{id}")
+    public Student updateStudent(@PathVariable Long id, @RequestBody Student student){
+        return studentService.updateStudent(id,student);
+    }
+
+    @DeleteMapping("/deleteStudent/{id}")
+    public void deleteStudent(@PathVariable Long id){
+        studentService.deleteStudent(id);
+    }
+}
