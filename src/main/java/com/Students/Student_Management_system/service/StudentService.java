@@ -25,7 +25,10 @@ public class StudentService {
 
     public List<Student> getStudentByAgeGreaterThan(int age){
          return studentRepository.findByAgeGreaterThan(age);
+    }
 
+    public List<Student>searchByName(String name){
+      return studentRepository.searchByName(name);
     }
 
     public Student addStudent(Student student){

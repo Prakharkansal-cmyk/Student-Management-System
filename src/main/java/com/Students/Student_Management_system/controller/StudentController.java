@@ -49,4 +49,9 @@ public class StudentController {
     public List<Student>getStudentByAgeGreaterThan(@PathVariable int age){
         return studentService.getStudentByAgeGreaterThan(age);
     }
+
+    @GetMapping("/searchByName")
+    public List<Student>searchByName(@RequestParam String name){
+        return studentService.searchByName(name);
+    }
 }
