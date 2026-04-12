@@ -4,6 +4,7 @@ import com.Students.Student_Management_system.entity.Student;
 import com.Students.Student_Management_system.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,6 +18,11 @@ public class StudentService {
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
     }
+
+    public List<Student> getStudentByName( String name){
+        return studentRepository.findByName(name);
+    }
+
     public Student addStudent(Student student){
         return studentRepository.save(student);
     }
