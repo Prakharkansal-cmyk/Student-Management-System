@@ -23,6 +23,11 @@ public class StudentService {
         return studentRepository.findByName(name);
     }
 
+    public List<Student> getStudentByAgeGreaterThan(int age){
+         return studentRepository.findByAgeGreaterThan(age);
+
+    }
+
     public Student addStudent(Student student){
         return studentRepository.save(student);
     }

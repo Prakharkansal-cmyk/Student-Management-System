@@ -44,4 +44,9 @@ public class StudentController {
     public List<Student> getStudentByName(@PathVariable String name){
         return studentService.getStudentByName(name);
     }
+
+    @GetMapping("/getStudentByAgeGreaterThan/{age}")
+    public List<Student>getStudentByAgeGreaterThan(@PathVariable int age){
+        return studentService.getStudentByAgeGreaterThan(age);
+    }
 }
