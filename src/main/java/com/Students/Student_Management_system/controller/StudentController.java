@@ -3,6 +3,7 @@ package com.Students.Student_Management_system.controller;
 
 import com.Students.Student_Management_system.entity.Student;
 import com.Students.Student_Management_system.service.StudentService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,12 +21,12 @@ public class StudentController {
     }
 
     @PostMapping("/addStudent")
-   public Student addStudent(@RequestBody Student student){
+   public Student addStudent( @Valid  @RequestBody Student student){
         return studentService.addStudent(student);
     }
 
     @PutMapping("/updatedStudent/{id}")
-    public Student updateStudent(@PathVariable Long id, @RequestBody Student student){
+    public Student updateStudent( @PathVariable Long id,@Valid @RequestBody Student student){
         return studentService.updateStudent(id,student);
     }
 
