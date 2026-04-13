@@ -4,6 +4,9 @@ import com.Students.Student_Management_system.DTO.StudentDTO;
 import com.Students.Student_Management_system.entity.Student;
 import com.Students.Student_Management_system.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.modelmapper.ModelMapper;
@@ -44,6 +47,11 @@ public class StudentService {
     public Student getStudentById(Long id){
         return studentRepository.findById(id)
                 .orElseThrow(()->new RuntimeException("Student Not found"));
+    }
+
+    public Page<Student> getStudentsWithPagination(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return studentRepository.findAll(pageable);
     }
 
     public Student updateStudent(Long id,Student updatedStudent){

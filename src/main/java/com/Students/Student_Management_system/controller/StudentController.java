@@ -6,6 +6,7 @@ import com.Students.Student_Management_system.entity.Student;
 import com.Students.Student_Management_system.service.StudentService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -55,4 +56,10 @@ public class StudentController {
     public List<Student>searchByName(@RequestParam String name){
         return studentService.searchByName(name);
     }
+
+    @GetMapping("/students/page")
+    public Page<Student> getStudentWithPagination(@RequestParam int page, @RequestParam int size){
+          return studentService.getStudentsWithPagination(page, size);
+    }
+
 }
