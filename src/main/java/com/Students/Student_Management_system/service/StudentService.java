@@ -1,16 +1,21 @@
 package com.Students.Student_Management_system.service;
 
+import com.Students.Student_Management_system.DTO.StudentDTO;
 import com.Students.Student_Management_system.entity.Student;
 import com.Students.Student_Management_system.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.modelmapper.ModelMapper;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class StudentService {
+
+    @Autowired
+    private ModelMapper modelMapper;
 
     @Autowired
     private StudentRepository studentRepository;
@@ -31,7 +36,8 @@ public class StudentService {
       return studentRepository.searchByName(name);
     }
 
-    public Student addStudent(Student student){
+    public Student addStudent(StudentDTO studentDTO){
+        Student student=modelMapper.map(studentDTO,Student.class);
         return studentRepository.save(student);
     }
 

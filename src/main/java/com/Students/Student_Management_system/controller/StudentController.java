@@ -1,6 +1,7 @@
 package com.Students.Student_Management_system.controller;
 
 
+import com.Students.Student_Management_system.DTO.StudentDTO;
 import com.Students.Student_Management_system.entity.Student;
 import com.Students.Student_Management_system.service.StudentService;
 import jakarta.validation.Valid;
@@ -21,8 +22,8 @@ public class StudentController {
     }
 
     @PostMapping("/addStudent")
-   public Student addStudent( @Valid  @RequestBody Student student){
-        return studentService.addStudent(student);
+   public Student addStudent( @Valid  @RequestBody StudentDTO studentDTO){
+        return studentService.addStudent(studentDTO);
     }
 
     @PutMapping("/updatedStudent/{id}")
