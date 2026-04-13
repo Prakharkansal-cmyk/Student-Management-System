@@ -58,8 +58,8 @@ public class StudentController {
     }
 
     @GetMapping("/students/page")
-    public Page<Student> getStudentWithPagination(@RequestParam int page, @RequestParam int size){
-          return studentService.getStudentsWithPagination(page, size);
+    public Page<Student> getStudentWithPagination(@RequestParam int page, @RequestParam int size,@RequestParam String sortBy){
+          return studentService.getStudentsWithPagination(page, size,sortBy);
     }
 
 }

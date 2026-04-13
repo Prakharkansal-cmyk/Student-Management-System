@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.modelmapper.ModelMapper;
@@ -49,8 +50,8 @@ public class StudentService {
                 .orElseThrow(()->new RuntimeException("Student Not found"));
     }
 
-    public Page<Student> getStudentsWithPagination(int page, int size) {
-        Pageable pageable = PageRequest.of(page, size);
+    public Page<Student> getStudentsWithPagination(int page, int size,String sortBy) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy));
         return studentRepository.findAll(pageable);
     }
 
