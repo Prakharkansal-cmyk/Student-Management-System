@@ -1,6 +1,6 @@
 package com.Students.Student_Management_system.repository;
 
-import com.Students.Student_Management_system.entity.Student;
+import com.Students.Student_Management_system.model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

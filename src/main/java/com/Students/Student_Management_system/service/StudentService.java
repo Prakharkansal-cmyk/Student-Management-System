@@ -1,7 +1,7 @@
 package com.Students.Student_Management_system.service;
 
 import com.Students.Student_Management_system.DTO.StudentDTO;
-import com.Students.Student_Management_system.entity.Student;
+import com.Students.Student_Management_system.model.Student;
 import com.Students.Student_Management_system.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -9,11 +9,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.modelmapper.ModelMapper;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class StudentService {

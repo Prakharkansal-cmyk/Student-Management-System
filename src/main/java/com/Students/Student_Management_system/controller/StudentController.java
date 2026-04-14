@@ -2,7 +2,7 @@ package com.Students.Student_Management_system.controller;
 
 
 import com.Students.Student_Management_system.DTO.StudentDTO;
-import com.Students.Student_Management_system.entity.Student;
+import com.Students.Student_Management_system.model.Student;
 import com.Students.Student_Management_system.service.StudentService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
